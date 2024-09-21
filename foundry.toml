@@ -6,6 +6,9 @@ libs = ["lib"]
 remappings = [
     "ds-test/=lib/forge-std/lib/ds-test/src/",
     "@forge-std/=lib/forge-std/src/",
+    "@solbase/=lib/solbase/src/",
+    "@openzeppelin/=lib/openzeppelin-contracts/contracts/",
+    "@layerzero-contracts/=lib/solidity-examples/contracts/",
 ]
 
 gas_reports_ignore = ["test", "script"]

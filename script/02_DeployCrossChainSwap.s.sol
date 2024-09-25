@@ -25,7 +25,7 @@ contract DeployCrossChainSwapScript is Script {
         artcoinBEP20 = BnbConfig.ARTCOIN_BEP20;
         lzEndpoint = BnbConfig.LZ_BNB_ENDPOINT;
         destChainId = AmoyConfig.LZ_POL_DEST_CHAIN_ID;
-        swapStartTime = 1726659000;
+        swapStartTime = 1727298000;
         swapEndTime = 1730411999;
     }
 

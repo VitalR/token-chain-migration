@@ -20,7 +20,7 @@ contract PostDeployVestingSetUpScript is Script {
         deployerPrivateKey = vm.envUint("DEPLOYER_PRIVATE_KEY");
         swapContract = BnbConfig.CROSS_CHAIN_SWAP;
         vestingContract = AmoyConfig.CROSS_CHAIN_VESTING;
-        // lzEndpoint = AmoyConfig.LZ_POL_ENDPOINT;
+        lzEndpoint = AmoyConfig.LZ_POL_ENDPOINT;
         destChainId = BnbConfig.LZ_BNB_DEST_CHAIN_ID;
     }
 

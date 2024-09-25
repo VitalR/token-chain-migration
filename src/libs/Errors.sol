@@ -2,7 +2,7 @@
 pragma solidity 0.8.25;
 
 /// @title Errors Library
-/// @notice Provides custom error messages for use in Philcoin cross-chain contracts.
+/// @notice Provides custom error messages for use in Artcoin cross-chain contracts.
 library Errors {
     /// @notice Thrown when there are no tokens available to swap.
     error NothingToSwap();

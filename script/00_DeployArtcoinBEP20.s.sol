@@ -5,7 +5,7 @@ import "forge-std/Script.sol";
 
 import {ArtcoinBEP20} from "src/token/ArtcoinBEP20.sol";
 
-contract DeployArtcoinScript is Script {
+contract DeployArtcoinBEP20Script is Script {
     ArtcoinBEP20 token;
     address owner;
     address deployerPublicKey;

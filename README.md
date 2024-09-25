@@ -1,66 +1,82 @@
-## Foundry
+# <h1 align="center"> Token Chain Migration Project </h1>
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This project implements a cross-chain token migration system for migrating tokens from one blockchain to another. It is built on top of LayerZero, enabling seamless communication between different blockchains (such as BNB and Polygon). The system allows users to swap old versions of tokens on one chain for new versions on another chain, with various options for vesting and bonuses.
 
-Foundry consists of:
+The project consists of two main smart contracts:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+1. **CrossChainSwap**:
 
-## Documentation
+   - Manages the token swap process, allowing users to swap tokens from one chain to another with different vesting options and bonuses.
+   - Supports multiple swap options, including a direct 1:1 transfer with no vesting or bonuses (Option 3).
+   - Tracks the total amount of swapped tokens and ensures the proper handling of token transfers and cross-chain messaging.
 
-https://book.getfoundry.sh/
+2. **CrossChainVesting**:
+   - Manages the vesting schedules for tokens swapped across chains.
+   - Supports vesting options with different cliff periods, bonuses, and durations.
+   - Handles the release of vested tokens and allows for the claiming of tokens under Option 3 after a specific event (TGE).
+   - Provides a mechanism for the owner to withdraw excess tokens from the contract after covering all vesting and claimable amounts.
+
+This project is designed to ensure a smooth and secure migration of tokens between chains while providing flexible vesting options for users. The contracts include additional functionality for tracking total swapped tokens, managing vesting schedules, and handling token claims post-TGE.
 
 ## Usage
 
-### Build
+Install Foundry and Forge: [installation guide](https://book.getfoundry.sh/getting-started/installation)
 
-```shell
-$ forge build
+### Setup:
+
+```bash
+git clone <repo_link>
 ```
 
-### Test
+### Install dependencies:
 
-```shell
-$ forge test
+```bash
+forge install
 ```
 
-### Format
+### Compile contracts:
 
 ```shell
-$ forge fmt
+make build
 ```
 
-### Gas Snapshots
+### Run unit tests:
 
 ```shell
-$ forge snapshot
+make test
 ```
 
-### Anvil
+### Add required .env variables:
 
-```shell
-$ anvil
+```bash
+cp .env.example .env
 ```
 
-### Deploy
+### Execute swap script:
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```bash
+make execute-swap
 ```
 
-### Cast
+---
+### Monitor Omnichain Transactions: 
 
-```shell
-$ cast <subcommand>
-```
+- [LayerZero Scan](https://testnet.layerzeroscan.com/): View and track cross-chain transactions in real-time.
+- [LayerZero Docs](https://docs.layerzero.network/v2/developers/evm/tooling/layerzeroscan): Learn more about LayerZero's omnichain infrastructure and available developer tools.
+---
 
-### Help
+<h2> Cross Chain Swap & Vesting Contracts </h2>
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+#### BNB CHAIN TESTNET:
+
+| Name             | Address                                                                                                                      |
+| :--------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| ARTCOIN_BEP20    | [0xF3B5E392278C3Ff61C5E6eBE14aC9EB5EdEb976a](https://testnet.bscscan.com/address/0xF3B5E392278C3Ff61C5E6eBE14aC9EB5EdEb976a) |
+| CROSS_CHAIN_SWAP | [0x297571610EEB63136a796fC717952017BC3A6774](https://testnet.bscscan.com/address/0x297571610EEB63136a796fC717952017BC3A6774) |
+
+#### POLYGON TESTNET:
+
+| Name                | Address                                                                                                                        |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------------------- |
+| ARTCOIN_ERC20       | [0x234aFAFa5507042BD05D8f42454616BA103004B1](https://amoy.polygonscan.com/address/0x234aFAFa5507042BD05D8f42454616BA103004B1) |
+| CROSS_CHAIN_VESTING | [0xE3351140F9D2060Df71B458657099beA83b095C0](https://amoy.polygonscan.com/address/0xE3351140F9D2060Df71B458657099beA83b095C0) |

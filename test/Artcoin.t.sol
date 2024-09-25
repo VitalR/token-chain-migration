@@ -3,7 +3,7 @@ pragma solidity 0.8.25;
 
 import {Test, stdError, console2} from "@forge-std/Test.sol";
 import {Artcoin} from "src/token/ArtcoinERC20.sol";
-// import {Errors} from "src/libs/Errors.sol";
+import {Errors} from "src/libs/Errors.sol";
 
 contract ArtcoinUnitTest is Test {
     Artcoin token;
